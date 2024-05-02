@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 import pickle
 
-# Define classes
 
 
 class Event:
@@ -256,14 +255,12 @@ def display_venue(venue_id):
             return venue.__dict__
     return None
 
-# Function to save data to a file using pickle
 
 
 def save_data(data, filename):
     with open(filename, "wb") as f:
         pickle.dump(data, f)
 
-# Function to load data from a file using pickle
 
 
 def load_data(filename):
@@ -302,7 +299,7 @@ def add_event_gui():
     tk.Label(top, text="Entertainment Company:").grid(row=12, column=0)
     tk.Label(top, text="Furniture Supply Company:").grid(row=13, column=0)
     tk.Label(top, text="Invoice:").grid(row=14, column=0)
-    # Add labels for other event details
+  
 
     event_id_entry = tk.Entry(top)
     event_type_entry = tk.Entry(top)
@@ -319,7 +316,7 @@ def add_event_gui():
     entertainment_company_entry = tk.Entry(top)
     furniture_supply_company_entry = tk.Entry(top)
     invoice_entry = tk.Entry(top)
-    # Add entry fields for other event details
+   
 
     event_id_entry.grid(row=0, column=1)
     event_type_entry.grid(row=1, column=1)
@@ -356,7 +353,7 @@ def add_event_gui():
             furniture_supply_company = furniture_supply_company_entry.get()
             invoice = invoice_entry.get()
 
-            # Create Event object and add to system
+            
             event = Event(event_id, event_type, theme, date, time, duration, venue_address, client_id, guest_list,
                           catering_company, cleaning_company, decorations_company, entertainment_company,
                           furniture_supply_company, invoice)
@@ -370,7 +367,7 @@ def add_event_gui():
 
     tk.Button(top, text="Save", command=save_event).grid(row=15, columnspan=2)
 
-# Similar functions for delete, modify, and display events
+
 
 
 def add_employee_gui():
@@ -424,7 +421,7 @@ def add_employee_gui():
 
     tk.Button(top, text="Save", command=save_employee).grid(row=8, columnspan=2)
 
-# Client GUI
+
 def add_client_gui():
     top = tk.Toplevel()
     top.title("Add Client")
@@ -464,7 +461,7 @@ def add_client_gui():
 
     tk.Button(top, text="Save", command=save_client).grid(row=5, columnspan=2)
 
-    # Client GUI
+    
     def delete_client_gui():
         top = tk.Toplevel()
         top.title("Delete Client")
@@ -494,8 +491,7 @@ def add_client_gui():
         client_id_entry = tk.Entry(top)
         client_id_entry.grid(row=0, column=1)
 
-        # Add labels and entry fields for client details to modify
-        # Similar to the add_client_gui() function
+        
 
         def modify_client():
             try:
@@ -628,33 +624,25 @@ def add_venue_gui():
     tk.Button(top, text="Save", command=save_venue).grid(row=6, columnspan=2)
 
 
-# Main Tkinter application
 root = tk.Tk()
 root.title("Events Management System")
-
 
 add_event_button = tk.Button(root, text="Add Event", command=add_event_gui)
 add_event_button.pack()
 
-# Employee CRUD operations GUI
 add_employee_button = tk.Button(root, text="Add Employee", command=add_employee_gui)
 add_employee_button.pack()
 
-# Client CRUD operations GUI
 add_client_button = tk.Button(root, text="Add Client", command=add_client_gui)
 add_client_button.pack()
 
-# Guest CRUD operations GUI
 add_guest_button = tk.Button(root, text="Add Guest", command=add_guest_gui)
 add_guest_button.pack()
 
-# Supplier CRUD operations GUI
 add_supplier_button = tk.Button(root, text="Add Supplier", command=add_supplier_gui)
 add_supplier_button.pack()
 
-# Venue CRUD operations GUI
 add_venue_button = tk.Button(root, text="Add Venue", command=add_venue_gui)
 add_venue_button.pack()
-
 
 root.mainloop()
